@@ -1,19 +1,21 @@
 var actions = require("./actions");
 var config = require("./config");
 
-var move = actions.move.bind(actions);
+
+/* Moves the bottom piece from its current position to its goal position
+var moveToDest = actions.move.bind(actions);
 
 var towerSolver = (function towerSolver(exports) {
   // fill in solution here
     
-    function moveDisks(n, startTowerPos, destTowerPos, intermediateTowerPos) {
+    function makeMovements(n, startTowerPos, destTowerPos, intermediateTowerPos) {
         
         if (n === 1) {        
-            move(startTowerPos, destTowerPos);        
+            moveToDest(startTowerPos, destTowerPos);        
         } else {
-            moveDisks(n-1, startTowerPos, intermediateTowerPos, destTowerPos);
-            move(startTowerPos, destTowerPos);
-            moveDisks(n-1, intermediateTowerPos, destTowerPos, startTowerPos);
+            makeMovements(n-1, startTowerPos, intermediateTowerPos, destTowerPos);
+            moveToDest(startTowerPos, destTowerPos);
+            makeMovements(n-1, intermediateTowerPos, destTowerPos, startTowerPos);
         }
     }
     
@@ -24,7 +26,7 @@ var towerSolver = (function towerSolver(exports) {
             intermediateTowerPos = 1,
             destTowerPos = 2;
         
-        moveDisks(n, startTowerPos, destTowerPos, intermediateTowerPos);
+        makeMovements(n, startTowerPos, destTowerPos, intermediateTowerPos);
     }
 
 
