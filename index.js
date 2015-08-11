@@ -2,7 +2,7 @@ var actions = require("./actions");
 var config = require("./config");
 
 
-/* Moves the bottom piece from its current position to its goal position
+/* Moves the bottom piece from its current position to its goal position */
 var moveToDest = actions.move.bind(actions);
 
 var towerSolver = (function towerSolver(exports) {
